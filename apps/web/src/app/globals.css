@@ -1,0 +1,153 @@
+/* Base color scheme */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Apply to entire page */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif !important;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-geist-sans);
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+/* Optional hover effect */
+.bi {
+  transition: transform 0.3s ease;
+}
+.bi:hover {
+  transform: scale(1.1);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #0D47A1, #00C49A);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  color: #0d6efd;
+}
+.nav-link:hover {
+  color: #0d6efd;
+}
+.bg-light-subtle {
+  background-color: #f8f9fb;
+}
+
+.btn-dark {
+  background-color: #0d223f;
+  border-color: #0d223f;
+}
+.btn-dark:hover {
+  background-color: #0b1b31;
+}
+
+.btn-outline-primary {
+  border-color: #0d6efd;
+  color: #0d6efd;
+}
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Sidebar animations for mobile */
+.sidebar-closed {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-open {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Main content adjustment for mobile when sidebar is open */
+.main-content {
+  transition: margin-left 0.3s ease-in-out;
+  /* Add padding-top on mobile to account for hamburger button */
+  padding-top: 4rem;
+}
+
+/* Media queries */
+@media (max-width: 767.98px) {
+  /* Mobile styles */
+  .main-content {
+    padding-top: 4rem; /* Space for hamburger button */
+    margin-left: 0 !important;
+  }
+  
+  .btn {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  h2, h4 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Desktop styles */
+  .sidebar-closed,
+  .sidebar-open {
+    transform: none !important;
+    position: relative !important;
+  }
+  
+  .main-content {
+    padding-top: 1rem;
+    margin-left: 0;
+  }
+  
+  aside {
+    position: relative !important;
+    transform: none !important;
+  }
+}
+
+/* Transition utilities */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Shadow utilities */
+.shadow-md {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
